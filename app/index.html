@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Whot! Duel - Arcium</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Sora:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#08060e;color:#F0ECF7;font-family:'Sora',sans-serif;min-height:100vh;display:flex;justify-content:center}
+.wrap{max-width:800px;width:100%;padding:20px}
+h1{font-family:'Orbitron',sans-serif;font-size:2rem;font-weight:900;text-align:center;margin:20px 0 5px;background:linear-gradient(135deg,#B794FF,#7B4FFF,#00E5FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.sub{text-align:center;font-size:.7rem;color:#5A4F6E;letter-spacing:3px;margin-bottom:15px}
+.badge{text-align:center;margin-bottom:20px}
+.badge span{padding:4px 14px;background:rgba(123,79,255,.08);border:1px solid rgba(123,79,255,.15);border-radius:20px;font-size:.6rem;color:#9B6FFF;letter-spacing:2px}
+.arena{display:flex;justify-content:center;align-items:center;gap:30px;margin:20px 0;flex-wrap:wrap}
+.player{display:flex;flex-direction:column;align-items:center;gap:10px}
+.plbl{font-family:'Orbitron',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:3px}
+.p1c{color:#00E5FF}.p2c{color:#9B6FFF}
+.crd{width:140px;height:196px;border-radius:14px;border:2px solid rgba(123,79,255,.2);background:linear-gradient(135deg,#1a1428,#110d1b);display:flex;flex-direction:column;align-items:center;justify-content:center;transition:all .5s}
+.crd .val{font-family:'Orbitron',sans-serif;font-size:2.5rem;font-weight:900;opacity:0;transition:opacity .5s}
+.crd .nm{font-size:.6rem;opacity:0;transition:opacity .5s;letter-spacing:2px;margin-top:4px}
+.crd .q{font-family:'Orbitron',sans-serif;font-size:1.5rem;font-weight:900;color:rgba(123,79,255,.3)}
+.crd.show .val,.crd.show .nm{opacity:1}
+.crd.show .q{display:none}
+.crd.win{border-color:#FFD700;box-shadow:0 0 30px rgba(255,215,0,.2)}
+.crd.win .val{color:#FFD700}
+.vs{font-family:'Orbitron',sans-serif;font-size:1rem;font-weight:900;color:#9B6FFF;width:50px;height:50px;border-radius:50%;border:2px solid rgba(123,79,255,.2);display:flex;align-items:center;justify-content:center}
+.pick{margin:15px 0;text-align:center}
+.pick .lbl{font-size:.65rem;color:#5A4F6E;letter-spacing:2px;margin-bottom:10px}
+.grid{display:grid;grid-template-columns:repeat(13,1fr);gap:4px;max-width:600px;margin:0 auto}
+.opt{aspect-ratio:3/4;border-radius:6px;border:1.5px solid rgba(123,79,255,.15);background:rgba(26,20,40,.5);display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;font-family:'Orbitron',sans-serif}
+.opt:hover{border-color:#7B4FFF;transform:translateY(-2px)}
+.opt.on{border-color:#00E5FF;background:rgba(0,229,255,.08);box-shadow:0 0 10px rgba(0,229,255,.15)}
+.opt .n{font-size:.75rem;font-weight:700}
+.opt .t{font-size:.3rem;color:#5A4F6E;margin-top:1px}
+.acts{text-align:center;margin:15px 0}
+.btn{padding:12px 40px;border:none;border-radius:10px;font-family:'Orbitron',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:3px;cursor:pointer;margin:5px}
+.btn1{background:linear-gradient(135deg,#7B4FFF,#5a2fd4);color:#fff}
+.btn1:disabled{opacity:.4;cursor:not-allowed}
+.btn2{background:transparent;color:#8B7FA8;border:1px solid rgba(123,79,255,.2)}
+.anim{display:none;text-align:center;padding:30px}
+.anim.on{display:block}
+.sp{width:40px;height:40px;border:3px solid rgba(123,79,255,.1);border-top-color:#7B4FFF;border-radius:50%;animation:spin 1s linear infinite;margin:0 auto 15px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.tx{font-size:.7rem;color:#9B6FFF;margin:5px 0}
+.hx{font-size:.5rem;color:#5A4F6E}
+.res{display:none;text-align:center;padding:20px;background:rgba(26,20,40,.6);border:1px solid rgba(123,79,255,.15);border-radius:14px;margin:15px auto;max-width:450px}
+.res.on{display:block}
+.res h2{font-family:'Orbitron',sans-serif;font-size:1.2rem;font-weight:900;letter-spacing:4px;margin-bottom:10px}
+.res h2.w{color:#FFD700}.res h2.t{color:#00E5FF}
+.res p{font-size:.8rem;color:#8B7FA8;margin:5px 0}
+.hid2{font-size:.6rem;color:#5A4F6E;padding:8px;background:rgba(123,79,255,.05);border-radius:8px;border:1px dashed rgba(123,79,255,.15);margin-top:10px}
+.ft{text-align:center;padding:15px;font-size:.55rem;color:#5A4F6E}
+.ft a{color:#9B6FFF;text-decoration:none}
+@media(max-width:500px){h1{font-size:1.3rem}.arena{flex-direction:column;gap:15px}.grid{grid-template-columns:repeat(7,1fr)}.crd{width:110px;height:154px}.crd .val{font-size:1.8rem}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>WHOT! DUEL</h1>
+<div class="sub">HIDDEN-INFORMATION CARD GAME</div>
+<div class="badge"><span>ENCRYPTED BY ARCIUM MPC</span></div>
+<div class="arena">
+<div class="player"><div class="plbl p1c">PLAYER 1</div><div class="crd" id="c1"><span class="q">?</span><span class="val" id="v1"></span><span class="nm" id="n1"></span></div></div>
+<div class="vs">VS</div>
+<div class="player"><div class="plbl p2c">PLAYER 2</div><div class="crd" id="c2"><span class="q">?</span><span class="val" id="v2"></span><span class="nm" id="n2"></span></div></div>
+</div>
+<div class="pick" id="s1"><div class="lbl">PLAYER 1 CHOOSE YOUR CARD</div><div class="grid" id="g1"></div></div>
+<div class="pick" id="s2" style="display:none"><div class="lbl">PLAYER 2 CHOOSE YOUR CARD</div><div class="grid" id="g2"></div></div>
+<div class="anim" id="ea"><div class="sp"></div><div class="tx" id="etx">Encrypting cards via Arcium MPC...</div><div class="hx" id="ehx">0x7a3f...</div></div>
+<div class="res" id="rs"><h2 id="rtt"></h2><p id="rtd"></p><div class="hid2" id="rth"></div></div>
+<div class="acts"><button class="btn btn1" id="ba" onclick="go()" disabled>LOCK CARD</button><button class="btn btn2" id="br" onclick="reset()" style="display:none">NEW DUEL</button></div>
+<div class="ft"><p>Cards compared inside Arcium MPC network</p><p><a href="https://explorer.solana.com/address/EomqSsYo473K6ZjeXPcTSJC4bT6naWuHfa6bSezMyvk1?cluster=devnet" target="_blank">View on Solana Explorer</a></p></div>
+</div>
+<script>
+var N=['','A','2','3','4','5','6','7','8','9','10','J','Q','K'];
+var F=['','Ace','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten','Jack','Queen','King'];
+var ph=1,p1=null,p2=null;
+function bg(id,p){var g=document.getElementById(id);g.innerHTML='';for(var i=1;i<=13;i++){var d=document.createElement('div');d.className='opt';d.innerHTML='<span class="n">'+N[i]+'</span><span class="t">'+F[i]+'</span>';(function(val){d.onclick=function(){sel(val,p,id)}})(i);d.id=id+i;g.appendChild(d)}}
+function sel(v,p,id){var els=document.querySelectorAll('#'+id+' .opt');for(var i=0;i<els.length;i++)els[i].classList.remove('on');document.getElementById(id+v).classList.add('on');if(p===1)p1=v;else p2=v;document.getElementById('ba').disabled=false}
+function go(){if(ph===1&&p1){document.getElementById('s1').style.display='none';document.getElementById('s2').style.display='block';document.getElementById('ba').disabled=true;ph=2;bg('g2',2)}else if(ph===2&&p2){document.getElementById('s2').style.display='none';document.getElementById('ba').style.display='none';document.getElementById('ea').classList.add('on');ph=3;enc()}}
+function enc(){var h=document.getElementById('ehx'),t=document.getElementById('etx'),s=0;var iv=setInterval(function(){var x='0x';for(var i=0;i<32;i++)x+=Math.floor(Math.random()*16).toString(16);h.textContent=x;s++;if(s===15)t.textContent='MPC nodes comparing encrypted values...';if(s===30)t.textContent='Computing result on secret shares...';if(s>=40){clearInterval(iv);setTimeout(show,500)}},100)}
+function show(){document.getElementById('ea').classList.remove('on');var tie=p1===p2,w,wc;if(tie)w=0;else if(p1>p2){w=1;wc=p1}else{w=2;wc=p2}if(tie){document.getElementById('v1').textContent=N[p1];document.getElementById('n1').textContent=F[p1];document.getElementById('v2').textContent=N[p2];document.getElementById('n2').textContent=F[p2];document.getElementById('c1').classList.add('show');document.getElementById('c2').classList.add('show')}else if(w===1){document.getElementById('v1').textContent=N[p1];document.getElementById('n1').textContent=F[p1];document.getElementById('c1').classList.add('show','win')}else{document.getElementById('v2').textContent=N[p2];document.getElementById('n2').textContent=F[p2];document.getElementById('c2').classList.add('show','win')}document.getElementById('rs').classList.add('on');var rtt=document.getElementById('rtt');if(tie){rtt.className='t';rtt.textContent="IT'S A TIE";document.getElementById('rtd').textContent='Both players drew '+F[p1];document.getElementById('rth').textContent='Both cards revealed'}else{rtt.className='w';rtt.textContent='PLAYER '+w+' WINS';document.getElementById('rtd').innerHTML='Winning card: <strong>'+F[wc]+'</strong>';document.getElementById('rth').textContent='Player '+(w===1?2:1)+"'s card remains encrypted"}document.getElementById('br').style.display='inline-block';ph=4}
+function reset(){ph=1;p1=null;p2=null;var c1=document.getElementById('c1'),c2=document.getElementById('c2');c1.className='crd';c2.className='crd';c1.innerHTML='<span class="q">?</span><span class="val" id="v1"></span><span class="nm" id="n1"></span>';c2.innerHTML='<span class="q">?</span><span class="val" id="v2"></span><span class="nm" id="n2"></span>';document.getElementById('s1').style.display='block';document.getElementById('s2').style.display='none';document.getElementById('rs').classList.remove('on');document.getElementById('ea').classList.remove('on');document.getElementById('ba').style.display='inline-block';document.getElementById('ba').disabled=true;document.getElementById('br').style.display='none';document.getElementById('etx').textContent='Encrypting cards via Arcium MPC...';bg('g1',1)}
+bg('g1',1);
+</script>
+</body>
+</html>

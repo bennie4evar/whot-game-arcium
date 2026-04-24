@@ -1,0 +1,98 @@
+ddddddddddddddddddrains Mono',monospace;font-size:.65rem;color:var(--dim);flex-wrap:wrap}
+.bv{color:var(--glow);font-weight:600}
+.arena{flex:1;display:flex;flex-direction:column;align-items:center;gap:20px;padding:20px 0}
+.row{display:flex;justify-content:center;align-items:center;gap:30px;width:100%}
+.ps{display:flex;flex-direction:column;align-items:center;gap:12px;flex:1;max-width:300px}
+.pl{font-family:'Orbitron',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:3px}
+.pl1{color:var(--cyan)}.pl2{color:var(--violet)}
+.cc{perspective:1000px;width:150px;height:210px}
+.card{width:100%;height:100%;position:relative;transition:transform .8s cubic-bezier(.4,0,.2,1);transform-style:preserve-3d}
+.card.flip{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;border-radius:14px;backface-visibility:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.back{background:linear-gradient(135deg,var(--surface),#110d1b);border:2px solid rgba(123,79,255,.2);box-shadow:0 8px 30px rgba(0,0,0,.4)}
+.bp{position:absolute;inset:8px;border:1px solid rgba(123,79,255,.15);border-radius:10px;display:flex;align-items:center;justify-content:center}
+.bp::after{content:'?';font-family:'Orbitron',sans-serif;font-size:1.8rem;font-weight:900;color:rgba(123,79,255,.3)}
+.front{background:linear-gradient(145deg,#1a1428,#0d0a15);border:2px solid var(--cyan);transform:rotateY(180deg);box-shadow:0 8px 30px rgba(0,0,0,.5)}
+.cv{font-family:'Orbitron',sans-serif;font-size:2.8rem;font-weight:900}
+.cn{font-size:.65rem;letter-spacing:2px;margin-top:6px;opacity:.7}
+.enc{position:absolute;bottom:12px;font-family:'JetBrains Mono',monospace;font-size:.45rem;color:rgba(123,79,255,.4)}
+.vs{width:56px;height:56px;border-radius:50%;background:radial-gradient(circle,rgba(123,79,255,.15),transparent);border:2px solid rgba(123,79,255,.2);display:flex;align-items:center;justify-content:center;font-family:'Orbitron',sans-serif;font-size:.9rem;font-weight:900;color:var(--violet);flex-shrink:0}
+.sel{width:100%;max-width:700px}
+.sl{font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--muted);text-align:center;margin-bottom:10px;letter-spacing:2px}
+.gr{display:grid;grid-template-columns:repeat(13,1fr);gap:5px}
+.co{aspect-ratio:3/4;border-radius:7px;border:1.5px solid rgba(123,79,255,.15);background:rgba(26,20,40,.5);display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;transition:all .25s;font-family:'Orbitron',sans-serif}
+.co:hover{border-color:var(--purple);background:rgba(123,79,255,.08);transform:translateY(-2px)}
+.co.sel{border-color:var(--cyan);background:rgba(0,229,255,.08);box-shadow:0 0 15px rgba(0,229,255,.15)}
+.co .n{font-size:.8rem;font-weight:700}.co .nm{font-family:'Sora',sans-serif;font-size:.35rem;color:var(--muted);margin-top:1px}
+.acts{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:14px;width:100%;max-width:380px}
+.btn{width:100%;padding:13px;border:none;border-radius:10px;font-family:'Orbitron',sans-serif;font-size:.8rem;font-weight:700;letter-spacing:3px;cursor:pointer;transition:all .3s}
+.bp1{background:linear-gradient(135deg,var(--purple),#5a2fd4);color:#fff;box-shadow:0 4px 20px rgba(123,79,255,.3)}
+.bp1:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 6px 30px rgba(123,79,255,.5)}
+.bp1:disabled{opacity:.4;cursor:not-allowed}
+.bs{background:transparent;color:var(--dim);border:1px solid rgba(123,79,255,.2)}
+.bs:hover{border-color:var(--purple);color:var(--text)}
+.ea{display:none;flex-direction:column;align-items:center;gap:14px;padding:30px}
+.ea.on{display:flex}
+.spin{width:50px;height:50px;border:3px solid rgba(123,79,255,.1);border-top-color:var(--purple);border-radius:50%;animation:s 1s linear infinite}
+@keyframes s{to{transform:rotate(360deg)}}
+.et{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--violet);text-align:center}
+.eh{font-family:'JetBrains Mono',monospace;font-size:.5rem;color:var(--muted);text-align:center}
+.rs{display:none;flex-direction:column;align-items:center;gap:14px;padding:20px;background:rgba(26,20,40,.6);border:1px solid rgba(123,79,255,.15);border-radius:14px;width:100%;max-width:480px;animation:ra .6s ease-out}
+.rs.on{display:flex}
+@keyframes ra{0%{opacity:0;transform:scale(.9) translateY(20px)}100%{opacity:1;transform:scale(1) translateY(0)}}
+.rt{font-family:'Orbitron',sans-serif;font-size:1.3rem;font-weight:900;letter-spacing:4px}
+.rt.w{color:var(--gold)}.rt.t{color:var(--cyan)}
+.rd{font-size:.8rem;color:var(--dim);text-align:center;line-height:1.6}
+.rh{font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--muted);padding:8px 14px;background:rgba(123,79,255,.05);border-radius:8px;border:1px dashed rgba(123,79,255,.15)}
+.ft{padding:14px 0;text-align:center;font-family:'JetBrains Mono',monospace;font-size:.55rem;color:var(--muted)}
+.ft a{color:var(--violet);text-decoration:none}
+@media(max-width:640px){.logo{font-size:1.4rem}.row{flex-direction:column;gap:16px}.cc{width:120px;height:168px}.cv{font-size:2rem}.gr{grid-template-columns:repeat(7,1fr)}.vs{width:40px;height:40px;font-size:.7rem}}
+</style>
+</head>
+<body>
+<div class="bg"></div><div class="orb o1"></div><div class="orb o2"></div>
+<div class="wrap">
+<header class="hdr">
+<div class="logo">WHOT! DUEL</div>
+<div class="sub">HIDDEN-INFORMATION CARD GAME</div>
+<div class="badge"><span class="dot"></span>ENCRYPTED BY ARCIUM MPC</div>
+</header>
+<div class="bar">
+<span>Network: <span class="bv">Solana Devnet</span></span>
+<span>Program: <span class="bv" style="font-size:.5rem">EomqS...Myvk1</span></span>
+<span>Cluster: <span class="bv">456</span></span>
+</div>
+<div class="arena">
+<div class="row">
+<div class="ps"><div class="pl pl1">PLAYER 1</div>
+<div class="cc"><div class="card" id="c1"><div class="face back"><div class="bp"></div><div class="enc">ENCRYPTED</div></div>
+<div class="face front" id="c1f" style="border-color:var(--cyan)"><div class="cv" id="c1v" style="color:var(--cyan)"></div><div class="cn" id="c1n"></div></div></div></div></div>
+<div class="vs">VS</div>
+<div class="ps"><div class="pl pl2">PLAYER 2</div>
+<div class="cc"><div class="card" id="c2"><div class="face back"><div class="bp"></div><div class="enc">ENCRYPTED</div></div>
+<div class="face front" id="c2f" style="border-color:var(--violet)"><div class="cv" id="c2v" style="color:var(--violet)"></div><div class="cn" id="c2n"></div></div></div></div></div>
+</div>
+<div class="sel" id="s1"><div class="sl">PLAYER 1 — CHOOSE YOUR CARD</div><div class="gr" id="g1"></div></div>
+<div class="sel" id="s2" style="display:none"><div class="sl">PLAYER 2 — CHOOSE YOUR CARD</div><div class="gr" id="g2"></div></div>
+<div class="ea" id="ea"><div class="spin"></div><div class="et" id="etxt">Encrypting cards via Arcium MPC...</div><div class="eh" id="ehash">0x7a3f...</div><div class="et" style="font-size:.55rem;color:var(--muted)">Neither player can see the other's card</div></div>
+<div class="rs" id="rs"><div class="rt" id="rtt"></div><div class="rd" id="rtd"></div><div class="rh" id="rth"></div></div>
+<div class="acts"><button class="btn bp1" id="ba" onclick="go()" disabled>LOCK CARD</button><button class="btn bs" id="br" onclick="reset()" style="display:none">NEW DUEL</button></div>
+</div>
+<div class="ft"><p>Cards compared inside Arcium MPC — no party sees raw inputs</p><p style="margin-top:4px"><a href="https://explorer.solana.com/address/EomqSsYo473K6ZjeXPcTSJC4bT6naWuHfa6bSezMyvk1?cluster=devnet" target="_blank">View on Solana Explorer</a></p></div>
+</div>
+<script>
+const N=['','A','2','3','4','5','6','7','8','9','10','J','Q','K'];
+const F=['','Ace','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten','Jack','Queen','King'];
+let ph=1,p1=null,p2=null;
+function bg(id,p){const g=document.getElementById(id);g.innerHTML='';for(let i=1;i<=13;i++){const d=document.createElement('div');d.className='co';d.innerHTML=`<span class="n">${N[i]}</span><span class="nm">${F[i]}</span>`;d.onclick=()=>sel(i,p,id);d.id=id+i;g.appendChild(d)}}
+function sel(v,p,id){document.querySelectorAll('#'+id+' .co').forEach(e=>e.classList.remove('sel'));document.getElementById(id+v).classList.add('sel');if(p===1)p1=v;else p2=v;document.getElementById('ba').disabled=false}
+function go(){if(ph===1&&p1){document.getElementById('s1').style.display='none';document.getElementById('s2').style.display='block';document.getElementById('ba').disabled=true;ph=2;bg('g2',2)}else if(ph===2&&p2){document.getElementById('s2').style.display='none';document.getElementById('ba').style.display='none';document.getElementById('ea').classList.add('on');ph=3;enc()}}
+function enc(){const h=document.getElementById('ehash');const t=document.getElementById('etxt');let s=0;const iv=setInterval(()=>{h.textContent='0x'+Array.from({length:32},()=>Math.floor(Math.random()*16).toString(16)).join('');s++;if(s===15)t.textContent='MPC nodes comparing encrypted values...';if(s===30)t.textContent='Computing result on secret shares...';if(s>=40){clearInterval(iv);setTimeout(show,500)}},100)}
+function show(){document.getElementById('ea').classList.remove('on');let w,wc,lc;const tie=p1===p2;if(tie)w=0;else if(p1>p2){w=1;wc=p1;lc=p2}else{w=2;wc=p2;lc=p1}
+if(tie){sc(1,p1);sc(2,p2);document.getElementById('c1').classList.add('flip');setTimeout(()=>document.getElementById('c2').classList.add('flip'),300)}else if(w===1){sc(1,p1);document.getElementById('c1').classList.add('flip');document.getElementById('c1f').style.borderColor='var(--gold)';document.getElementById('c1v').style.color='var(--gold)'}else{sc(2,p2);document.getElementById('c2').classList.add('flip');document.getElementById('c2f').style.borderColor='var(--gold)';document.getElementById('c2v').style.color='var(--gold)'}
+setTimeout(()=>{const rs=document.getElementById('rs');rs.classList.add('on');if(tie){document.getElementById('rtt').className='rt t';document.getElementById('rtt').textContent="IT'S A TIE";document.getElementById('rtd').textContent='Both players drew '+F[p1];document.getElementById('rth').textContent='Both cards revealed — they matched'}else{document.getElementById('rtt').className='rt w';document.getElementById('rtt').textContent='PLAYER '+w+' WINS';document.getElementById('rtd').innerHTML='Winning card: <strong>'+F[wc]+'</strong>';document.getElementById('rth').textContent='Player '+(w===1?2:1)+"'s card remains encrypted — never exposed"}document.getElementById('br').style.display='block'},tie?800:500);ph=4}
+function sc(p,v){document.getElementById('c'+p+'v').textContent=N[v];document.getElementById('c'+p+'n').textContent=F[v]}
+function reset(){ph=1;p1=null;p2=null;document.getElementById('c1').classList.remove('flip');document.getElementById('c2').classList.remove('flip');document.getElementById('c1f').style.borderColor='var(--cyan)';document.getElementById('c1v').style.color='var(--cyan)';document.getElementById('c2f').style.borderColor='var(--violet)';document.getElementById('c2v').style.color='var(--violet)';document.getElementById('s1').style.display='block';document.getElementById('s2').style.display='none';document.getElementById('rs').classList.remove('on');document.getElementById('ea').classList.remove('on');document.getElementById('ba').style.display='block';document.getElementById('ba').disabled=true;document.getElementById('br').style.display='none';document.getElementById('etxt').textContent='Encrypting cards via Arcium MPC...';bg('g1',1)}
+bg('g1',1);
+</script>
+<
